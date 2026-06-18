@@ -41,7 +41,7 @@ public class CrawlEngine(HttpClient httpClient, int maxDegreeOfParallelism) {
     }
 
     private async Task ProcessUrlAsync(string url, CancellationToken ct) {
-        Console.WriteLine($"Crawling {url}");
+        Console.WriteLine(Program.BwdPrefix + $"Crawling {url}");
 
         using var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ct);
         if (!response.IsSuccessStatusCode) { return; }
